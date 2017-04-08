@@ -1,43 +1,44 @@
 package uqac.sma.project.core;
 
 import uqac.sma.project.utils.Constants;
+import uqac.sma.project.agent.*;
 
 public class Match {
 
-	private Strategy strategyA;
-	private Strategy strategyB;
-	private int scoreA;
-	private int scoreB;
+	private Agent agentA;
+	private Agent agentB;
 	
-	public Match(Strategy strategyA, Strategy strategyB) {
-		this.strategyA = strategyA;
-		this.strategyB = strategyB;
-		this.scoreA = 0;
-		this.scoreB = 0;
+	public Match(Agent agentA, Agent agentB) {
+		this.agentA = agentA;
+		this.agentB = agentB;
+		this.agentA.setScore(0);
+		this.agentB.setScore(0);
 	}
 	
 	public Strategy getStrategyA() {
-		return strategyA;
+		return agentA.getStrategy();
 	}
 
 	public Strategy getStrategyB() {
-		return strategyB;
+		return agentB.getStrategy();
 	}
 	
 	public int getScoreA() {
-		return scoreA;
+		return agentA.getScore();
 	}
 
 	public int getScoreB() {
-		return scoreB;
+		return agentB.getScore();
 	}
 
 	public void fight() {
 		Decision oldA = Decision.NOTHING;
 		Decision oldB = Decision.NOTHING;
 		for (int i = 0; i < Constants.MAX_ROUND; i++) {
-			Decision decisionA = strategyA.play(i, oldB);
-			Decision decisionB = strategyB.play(i, oldA);
+			agentA.setLastOpponentDecision(oldB);
+			agentB.setLastOpponentDecision(oldA);
+			Decision decisionA = agentA.playStrategy(i);
+			Decision decisionB = agentB.playStrategy(i);
 			oldA = decisionA;
 			oldB = decisionB;
 			score(decisionA, decisionB);
@@ -46,18 +47,18 @@ public class Match {
 	
 	private void score(Decision decisionA, Decision decisionB) {
 		if (decisionA == Decision.COOPERATE && decisionB == Decision.COOPERATE) {
-			scoreA += 3;
-			scoreB += 3;
+			agentA.setScore(getScoreA() + 3);
+			agentB.setScore(getScoreB() + 3);
 		}
 		if (decisionA == Decision.DEFECT && decisionB == Decision.COOPERATE) {
-			scoreA += 5;
+			agentA.setScore(getScoreA() + 5);
 		}
 		if (decisionB == Decision.DEFECT && decisionA == Decision.COOPERATE) {
-			scoreB += 5;
+			agentB.setScore(getScoreB() + 5);
 		}
 		if (decisionA == Decision.DEFECT && decisionB == Decision.DEFECT) {
-			scoreA += 1;
-			scoreB += 1;
+			agentA.setScore(getScoreA() + 1);
+			agentB.setScore(getScoreB() + 1);
 		}
 	}
 	

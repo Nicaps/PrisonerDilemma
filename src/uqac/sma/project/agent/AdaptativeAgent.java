@@ -28,6 +28,8 @@ public class AdaptativeAgent extends Agent {
 	
 	@Override
 	public Decision playStrategy(int round){
+		this.discoverOpponentStrategy();
+		this.adapt();
 		Decision d = this.strategy.play(round, this.lastOpponentDecision);
 		this.listDecisions.add(d);
 		return d;
