@@ -25,10 +25,6 @@ public class Test {
 			tB += sB;
 			if(sA > sB) vA += 1;
 			if(sB > sA) vB += 1;
-			if(sA == sB){
-				vA += 1;
-				vB += 1;
-			}
 		}
 		
 		System.out.println("Agent A : score moyen = "+tA/it+"; probabilité de victoire = "+vA*100/it);
