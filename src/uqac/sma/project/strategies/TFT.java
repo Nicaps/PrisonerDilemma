@@ -9,7 +9,7 @@ public class TFT implements Strategy {
 	public TFT(){}
 	
 	@Override
-	public Decision play(int round, Decision lastOpponentDecision, int myScore, int opponentScore) {
+	public Decision play(int round, Decision lastOpponentDecision) {
 		return (round == 0 ? Decision.COOPERATE : lastOpponentDecision);
 	}
 

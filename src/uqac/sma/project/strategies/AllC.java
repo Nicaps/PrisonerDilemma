@@ -8,7 +8,7 @@ public class AllC implements Strategy {
 	public AllC(){}
 
 	@Override
-	public Decision play(int round, Decision lastOpponentDecision, int myScore, int opponentScore) {
+	public Decision play(int round, Decision lastOpponentDecision) {
 		return Decision.COOPERATE;
 	}
 

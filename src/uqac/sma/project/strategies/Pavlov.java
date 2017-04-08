@@ -10,7 +10,7 @@ public class Pavlov implements Strategy {
 	public Pavlov(){}
 	
 	@Override
-	public Decision play(int round, Decision lastOpponentDecision, int myScore,	int opponentScore) {
+	public Decision play(int round, Decision lastOpponentDecision) {
 		_decision = (round == 0 ? Decision.COOPERATE : (_decision == lastOpponentDecision ? Decision.COOPERATE : Decision.DEFECT));
 		return _decision;
 	}

@@ -7,8 +7,7 @@ public class Random implements Strategy {
 	
 	public Random(){}
 	
-	public Decision play(int round, Decision lastOpponentDecision, int myScore,
-			int opponentScore){
+	public Decision play(int round, Decision lastOpponentDecision){
 		return ((int)(Math.random()*2) == 0 ? Decision.COOPERATE : Decision.DEFECT);
 	}
 }

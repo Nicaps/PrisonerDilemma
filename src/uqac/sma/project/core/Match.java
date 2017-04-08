@@ -36,8 +36,8 @@ public class Match {
 		Decision oldA = Decision.NOTHING;
 		Decision oldB = Decision.NOTHING;
 		for (int i = 0; i < Constants.MAX_ROUND; i++) {
-			Decision decisionA = strategyA.play(i, oldB, scoreA, scoreB);
-			Decision decisionB = strategyB.play(i, oldA, scoreB, scoreA);
+			Decision decisionA = strategyA.play(i, oldB);
+			Decision decisionB = strategyB.play(i, oldA);
 			oldA = decisionA;
 			oldB = decisionB;
 			score(decisionA, decisionB);

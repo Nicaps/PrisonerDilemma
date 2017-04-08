@@ -11,8 +11,7 @@ public class Spiteful implements Strategy {
 	}
 
 	@Override
-	public Decision play(int round, Decision lastOpponentDecision, int myScore,
-			int opponentScore) {
+	public Decision play(int round, Decision lastOpponentDecision) {
 		if (!_spiteful && lastOpponentDecision == Decision.DEFECT) {
 			_spiteful = true;
 		}

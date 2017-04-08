@@ -8,7 +8,7 @@ public class AllD implements Strategy {
 	public AllD(){}
 	
 	@Override
-	public Decision play(int round, Decision lastOpponentDecision, int myScore, int opponentScore) {
+	public Decision play(int round, Decision lastOpponentDecision) {
 		return Decision.DEFECT;
 	}
 
