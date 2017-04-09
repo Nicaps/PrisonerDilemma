@@ -12,5 +12,6 @@ public class Mistrust implements Strategy {
 	public Decision play(int round, Decision lastOpponentDecision) {
 		return (round == 0 ? Decision.DEFECT : lastOpponentDecision);
 	}
-
+	
+	public void finalize(){}
 }

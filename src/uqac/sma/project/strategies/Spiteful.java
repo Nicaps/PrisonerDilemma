@@ -17,5 +17,6 @@ public class Spiteful implements Strategy {
 		}
 		return (_spiteful ? Decision.DEFECT : Decision.COOPERATE);
 	}
-
+	
+	public void finalize(){}
 }

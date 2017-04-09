@@ -12,5 +12,6 @@ public class TFT implements Strategy {
 	public Decision play(int round, Decision lastOpponentDecision) {
 		return (round == 0 ? Decision.COOPERATE : lastOpponentDecision);
 	}
-
+	
+	public void finalize(){}
 }

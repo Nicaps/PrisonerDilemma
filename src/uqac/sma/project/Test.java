@@ -6,9 +6,9 @@ import uqac.sma.project.agent.*;
 
 public class Test {
 
-	public static void main(String[] args) {
-		Agent agentA = new Agent(new AllC());
-		Agent agentB = new Agent(new AllD());
+	public static void main(String[] args) {		
+		Agent agentA = new Agent(new TFT());
+		Agent agentB = new Agent(new AllC());
 		
 		int it = 10000;
 		
@@ -28,6 +28,6 @@ public class Test {
 		}
 		
 		System.out.println("Agent A : score moyen = "+tA/it+"; probabilité de victoire = "+vA*100/it);
-		System.out.println("Agent A : score moyen = "+tB/it+"; probabilité de victoire = "+vB*100/it);
+		System.out.println("Agent B : score moyen = "+tB/it+"; probabilité de victoire = "+vB*100/it);
 	}
 }

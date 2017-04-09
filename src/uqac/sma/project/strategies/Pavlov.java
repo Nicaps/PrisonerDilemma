@@ -15,4 +15,5 @@ public class Pavlov implements Strategy {
 		return _decision;
 	}
 
+	public void finalize(){}
 }

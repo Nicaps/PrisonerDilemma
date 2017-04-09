@@ -11,5 +11,6 @@ public class AllD implements Strategy {
 	public Decision play(int round, Decision lastOpponentDecision) {
 		return Decision.DEFECT;
 	}
-
+	
+	public void finalize(){}
 }

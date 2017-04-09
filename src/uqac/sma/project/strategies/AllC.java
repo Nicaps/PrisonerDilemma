@@ -11,5 +11,7 @@ public class AllC implements Strategy {
 	public Decision play(int round, Decision lastOpponentDecision) {
 		return Decision.COOPERATE;
 	}
+	
+	public void finalize(){}
 
 }

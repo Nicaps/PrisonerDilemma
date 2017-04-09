@@ -10,4 +10,6 @@ public class Random implements Strategy {
 	public Decision play(int round, Decision lastOpponentDecision){
 		return ((int)(Math.random()*2) == 0 ? Decision.COOPERATE : Decision.DEFECT);
 	}
+	
+	public void finalize(){}
 }
