@@ -2,20 +2,26 @@ package uqac.sma.project;
 
 import uqac.sma.project.core.*;
 import uqac.sma.project.strategies.*;
+import uqac.sma.project.utils.Constants;
+
+import java.util.Map;
+import java.util.Map.Entry;
+
 import uqac.sma.project.agent.*;
 
 public class Test {
 
+	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {		
-		Agent agentA = new Agent(new TFT());
-		Agent agentB = new Agent(new AllC());
+		Agent agentA = new Agent(new Random());
+		AdaptativeAgent agentB = new AdaptativeAgent();
 		
-		int it = 10000;
+		int it = 1;
 		
 		int sA, sB, tA = 0, tB = 0, vA = 0, vB = 0;
 		
 		
-		for (int i = 0; i< it; i++){
+		for (int i = 0; i<it; i++){
 			Match m = new Match(agentA,agentB);
 			m.fight();
 			sA = agentA.getScore();
@@ -27,7 +33,13 @@ public class Test {
 			if(sB > sA) vB += 1;
 		}
 		
-		System.out.println("Agent A : score moyen = "+tA/it+"; probabilité de victoire = "+vA*100/it);
+		for(Entry<Class, Boolean> entry : Constants.POSSIBILITY.entrySet()){
+			System.out.println(entry);
+		}
+		System.out.println();
+		System.out.println(agentB.getStrategy());
+		
+		System.out.println("\nAgent A : score moyen = "+tA/it+"; probabilité de victoire = "+vA*100/it);
 		System.out.println("Agent B : score moyen = "+tB/it+"; probabilité de victoire = "+vB*100/it);
 	}
 }

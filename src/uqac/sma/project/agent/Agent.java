@@ -12,8 +12,11 @@ public class Agent {
 	
 	public Agent(){
 		this.score = 0;
+		this.lastOpponentDecision = null;
+		this.strategy = null;
+		this.decision = null;
+		this.lastDecision = null;
 	}
-	
 	
 	public Agent(Strategy s){
 		this();

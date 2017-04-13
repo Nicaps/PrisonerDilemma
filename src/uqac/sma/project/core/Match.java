@@ -32,15 +32,11 @@ public class Match {
 	}
 
 	public void fight() {
-		Decision oldA = Decision.NOTHING;
-		Decision oldB = Decision.NOTHING;
 		for (int i = 0; i < Constants.MAX_ROUND; i++) {
-			agentA.setLastOpponentDecision(oldB);
-			agentB.setLastOpponentDecision(oldA);
 			Decision decisionA = agentA.playStrategy(i);
 			Decision decisionB = agentB.playStrategy(i);
-			oldA = decisionA;
-			oldB = decisionB;
+			agentA.setLastOpponentDecision(decisionB);
+			agentB.setLastOpponentDecision(decisionA);
 			score(decisionA, decisionB);
 		}
 	}
