@@ -33,8 +33,16 @@ public class InferenceEngine {
 		}	
 	}
 	
-	
-	@SuppressWarnings("rawtypes")
+	/**
+	 * Découvrir la stratégie de l'adversaire grâce à la succession de ses décisions
+	 * @param decisions
+	 * @param opponentDecisions
+	 * @param round
+	 * @param hasC
+	 * @param hasD
+	 * @return
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Strategy discovery(ArrayList<Decision> decisions, ArrayList<Decision> opponentDecisions, int round, boolean hasC, boolean hasD){
 		if(hasC) Constants.POSSIBILITY.put(AllD.class,false);
 		if(hasD) Constants.POSSIBILITY.put(AllC.class,false);
@@ -53,6 +61,7 @@ public class InferenceEngine {
 					Constants.POSSIBILITY.put(TFT.class,false);
 					Constants.POSSIBILITY.put(Mistrust.class,false);
 					Constants.POSSIBILITY.put(Pavlov.class,false);
+					Constants.POSSIBILITY.put(Spiteful.class,false);
 				}
 				if(opponentDecisions.get(round-1) == Decision.DEFECT && opponentDecisions.get(round) == Decision.COOPERATE){
 					Constants.POSSIBILITY.put(Pavlov.class,false);
@@ -69,13 +78,13 @@ public class InferenceEngine {
 					Constants.POSSIBILITY.put(Pavlov.class,false);
 					Constants.POSSIBILITY.put(Spiteful.class,false);
 				}
-				if(opponentDecisions.get(round-1) == Decision.COOPERATE && opponentDecisions.get(round) == Decision.DEFECT){
-					
-				}
 				if(opponentDecisions.get(round-1) == Decision.DEFECT && opponentDecisions.get(round) == Decision.COOPERATE){
 					Constants.POSSIBILITY.put(TFT.class,false);
 					Constants.POSSIBILITY.put(Mistrust.class,false);
 					Constants.POSSIBILITY.put(Spiteful.class,false);
+				}
+				if(opponentDecisions.get(round-1) == Decision.DEFECT && opponentDecisions.get(round) == Decision.DEFECT){
+					Constants.POSSIBILITY.put(Pavlov.class,false);
 				}
 			}
 		}
