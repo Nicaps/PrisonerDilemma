@@ -8,12 +8,9 @@ public class Identifier implements Strategy{
 
 	@Override
 	public Decision play(int round, Decision lastOpponentDecision) {
-		switch(round){
-		case 0:
-			return Decision.DEFECT;
-		case 1:
+		if(round == 1){
 			return Decision.COOPERATE;
-		default:
+		} else {
 			return Decision.DEFECT;
 		}
 	}
