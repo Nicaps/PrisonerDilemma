@@ -11,7 +11,8 @@ public class Main {
 
 	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {		
-		Agent agentA = new Agent(new Spiteful());
+		Agent agentA = new Agent(new Pavlov());
+		//Agent agentB = new Agent(new TFT());
 		AdaptativeAgent agentB = new AdaptativeAgent();
 		
 		int it = 1;

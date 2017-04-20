@@ -23,7 +23,14 @@ public class InferenceEngine {
 	 */
 	@SuppressWarnings("unchecked")
 	public Strategy adaptation(Strategy opponentStrategy){
-		if (opponentStrategy == null) return new TFT();
+		if (opponentStrategy == null) {
+			try {
+				return (Strategy) Constants.DEFAULT_STRATEGY.newInstance();
+			} catch (InstantiationException | IllegalAccessException e) {
+				e.printStackTrace();
+				return new TFT();
+			}
+		}
 		Class<Strategy> c = Constants.EFFICIENCY.get(opponentStrategy.getClass());
 		try {
 			return c.newInstance();

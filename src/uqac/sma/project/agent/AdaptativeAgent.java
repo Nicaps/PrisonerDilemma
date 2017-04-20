@@ -3,7 +3,6 @@ package uqac.sma.project.agent;
 import java.util.ArrayList;
 import uqac.sma.project.core.Strategy;
 import uqac.sma.project.core.Decision;
-import uqac.sma.project.strategies.*;
 import uqac.sma.project.utils.Constants;
 
 public class AdaptativeAgent extends Agent {
